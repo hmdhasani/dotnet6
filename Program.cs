@@ -11,15 +11,17 @@ app.MapGet("/", () => {
 
 app.MapGet("/run", (ulong num) => {
    var random = new Random();
+   var list = new List<ulong>();
 
    var stopWatch = new System.Diagnostics.Stopwatch();
    stopWatch.Start();
 
    for (ulong i = 0; i < num; i++)
    {
-      var n1 = random.Next(1_000_000);
-      var n2 = random.Next(1_000_000);
+      var n1 = (ulong)random.Next(1_000_000);
+      var n2 = (ulong)random.Next(1_000_000);
       var n3 = n1*n2;
+      list.Add(n3);
    }
 
    stopWatch.Stop();
